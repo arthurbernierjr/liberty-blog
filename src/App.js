@@ -171,12 +171,13 @@ export default function App(){
                     signUp={signUp}
                     login={login}
                 />}></Route>
-                <Route path="/blog" 
+                <Route path="/blog/:id" 
                 element={
                 <ShowPage 
                     user={user} 
                     token={token} 
                     setToken={setToken}
+                    setUser={setUser}
                     getIndividualBlog={getIndividualBlog}
                     deleteBlog={deleteBlog}
                     updateBlog={updateBlog}

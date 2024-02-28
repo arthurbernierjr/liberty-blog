@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 
 export default function CreateForm(props) {
@@ -6,12 +7,13 @@ export default function CreateForm(props) {
         title: '',
         body: ''
     })
-
+    const navigateTo = useNavigate()
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            await props.createBlog(formData, props.token)
+            const data = await props.createBlog(formData, props.token)
             // cool thing to do once there is a showpage done
+            navigateTo(`/blog/${data._id}`)
         } catch (error) {
             console.error(error)
         }
